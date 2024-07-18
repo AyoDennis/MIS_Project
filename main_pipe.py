@@ -35,3 +35,15 @@ sql_create_stage = """
     """
 cur.execute(sql_create_stage)
 print("External stage created successfully.")
+
+
+# Create a file format for CSV files
+sql_create_file_format = """
+    CREATE OR REPLACE FILE FORMAT csv_format
+    TYPE = 'CSV'
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+    SKIP_HEADER = 1
+    FIELD_DELIMITER = ','
+    """
+cur.execute(sql_create_file_format)
+print("File format created successfully.")
