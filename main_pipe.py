@@ -1,3 +1,6 @@
+import snowflake.connector
+from snowflake.connector import DictCursor
+
 # Snowflake connection parameters
 snowflake_user = 'your_snowflake_user'
 snowflake_password = 'your_snowflake_password'
@@ -7,7 +10,7 @@ snowflake_database = 'your_snowflake_database'
 snowflake_schema = 'your_snowflake_schema'
 
 # Connection
-conn = snowfl.connector.connect(
+conn = snowflake.connector.connect(
     user=snowflake_user,
     password=snowflake_password,
     account=snowflake_account,
