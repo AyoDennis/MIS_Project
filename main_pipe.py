@@ -47,3 +47,14 @@ sql_create_file_format = """
     """
 cur.execute(sql_create_file_format)
 print("File format created successfully.")
+
+
+# Create a table with a flexible schema
+sql_create_table = """
+    CREATE OR REPLACE TABLE sales_table
+    (
+        VARIANT_COLUMN VARIANT
+    );
+    """
+cur.execute(sql_create_table)
+print("Table with flexible schema created successfully.")
