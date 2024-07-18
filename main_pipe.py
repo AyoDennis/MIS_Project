@@ -22,3 +22,16 @@ conn = snowflake.connector.connect(
 
 # Create a cursor object using DictCursor for easier dictionary handling
 cur = conn.cursor(DictCursor)
+
+
+# Create an external stage pointing to your S3 bucket
+sql_create_stage = """
+    CREATE OR REPLACE STAGE s3_stage
+    URL = 's3://name-of-s3-bucket/'
+    CREDENTIALS = (
+      AWS_KEY_ID = 'paste-from-your-credential',
+      AWS_SECRET_KEY = 'paste-from-your-credential'
+    )
+    """
+cur.execute(sql_create_stage)
+print("External stage created successfully.")
