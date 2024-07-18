@@ -19,3 +19,6 @@ conn = snowflake.connector.connect(
     schema=snowflake_schema
 )
 
+
+# Create a cursor object using DictCursor for easier dictionary handling
+cur = conn.cursor(DictCursor)
