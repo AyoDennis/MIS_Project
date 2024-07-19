@@ -58,3 +58,13 @@ sql_create_table = """
     """
 cur.execute(sql_create_table)
 print("Table with flexible schema created successfully.")
+
+  # Test manual data loading from S3 to Snowflake table
+sql_copy_into = """
+    COPY INTO sales_table
+    FROM @s3_stage/sftp_files/sales_file.csv
+    FILE_FORMAT = (FORMAT_NAME = 'csv_format')
+    ON_ERROR = 'CONTINUE';
+    """
+cur.execute(sql_copy_into)
+print("Data manually loaded successfully.")
