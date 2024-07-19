@@ -79,4 +79,9 @@ FROM @stage_name/s3_folder/s3_file.format
 FILE_FORMAT = (FORMAT_NAME = 'csv_format')
 ON_ERROR = 'CONTINUE';
 """
+cur.execute(sql_create_pipe)
+print("Snowpipe created successfully.")
 
+# Close cursor and connection
+cur.close()
+conn.close()
