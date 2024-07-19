@@ -78,5 +78,5 @@ COPY INTO YOUR_DATABASE_NAME.SCHEMA_NAME.table_name
 FROM @stage_name/s3_folder/s3_file.format
 FILE_FORMAT = (FORMAT_NAME = 'csv_format')
 ON_ERROR = 'CONTINUE';
-
 """
+
